@@ -1,0 +1,13 @@
+.Form{
+    margin-top: 1rem;
+    margin-left: 35%;
+    margin-right:35%;
+    width: 30%;
+    text-align:center;
+};
+.Label{
+    display: inline-block;
+    width: 90%;
+    text-align: right;
+
+}
