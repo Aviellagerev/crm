@@ -1,5 +1,5 @@
 import React from "react";
-import { ListGroupItem, Card, Accordion,Modal,ListGroup} from "react-bootstrap";
+import { ListGroupItem, Card,ListGroup} from "react-bootstrap";
 
 function Solution(){
     return( 
