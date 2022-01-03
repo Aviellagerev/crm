@@ -1,5 +1,7 @@
 # Getting Started with Create React App
-
+##run server
+use the terminal to get to the server directory and npm run server (for server and front end)
+user the terminal on the crm directory and npm start to get to frontend
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
