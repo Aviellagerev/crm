@@ -13,11 +13,11 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/"  element={<Home/>} />
-        <Route path="/solution" element={<Solution/>} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/fault-form" element={<FaultForm />} />
-        <Route path="/sign-up" element={<SignUp />} />
+        <Route exact path="/"  element={<Home/>} />
+        <Route exact path="/solution" element={<Solution/>} />
+        <Route exact path="/contact" element={<Contact />} />
+        <Route exact path="/fault-form" element={<FaultForm />} />
+        <Route exact path="/sign-up" element={<SignUp />} />
       </Routes>
     </Router>
   );
