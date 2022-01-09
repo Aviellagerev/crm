@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import {Form,Button,FloatingLabel} from 'react-bootstrap';
+import React, { useState ,useRef} from 'react';
+import {Form,Button,FloatingLabel,Spinner,Overlay} from 'react-bootstrap';
 import DatePicker from 'react-date-picker';
+import axios from 'axios';
+
 function Contact() {
-    const [value, onChange] = useState(new Date());
+  
     const Labelstlye={
         direction:'rtl',
         textAlign: 'right',
@@ -13,21 +15,61 @@ function Contact() {
         fontWeight: 'bold',
 
     }
+      const [personalNumber,setPersonal]= useState('');
+      const [clientNumber,setClietnumber]=useState('');
+      const [solution,setSolution]=useState('');
+      const [date,setDate]=useState(new Date());
+
+      const [spinner,setSpinner]=useState(true)
+      const [show, setShow] = useState(false);
+      const [msgColor,setColor]= useState('rgb(144, 238, 144)')
+      const [errorMsg,setErrormsg] = useState('נרשם בהצלחה')
+      const target = useRef(null);
+ const submitHandler=async(e) => {
+        e.preventDefault();
+        setSpinner(false);
+      
+        try{
+            const config={
+              headers:{
+                'Content-Type': 'application/json'
+              }
+            }
+            const {data}=await axios.post('/api/contacts',{
+              personalNumber,clientNumber,solution,date},
+              config
+              );
+          
+              setSpinner(true)
+              setShow(true)
+              setColor('rgb(144, 238, 144)')
+        }
+        catch(error){
+          setErrormsg(error.message)
+          setColor('rgb(255,0,0)')
+         
+         setSpinner(true);
+         setShow(true)
+        
+        }
+        
+      }
     return (
         <div>
         
         {/*need to add an id number with uuid package in the file in the data base*/}
-        <Form className="mb-3 Form">
+        <Form className="mb-3 Form" onSubmit={submitHandler}>
             
         <Form.Group className="mb-3">
                 <Form.Label style={HeaderStyle}>
                     טופס פניות/תלונות
                     </Form.Label>
+               
             <Form.Label>מספר אישי (חבר הצוות)</Form.Label>
-            <Form.Control placeholder="" />
+            <Form.Control placeholder="" onChange={(e)=>setPersonal(e.target.value)}value={personalNumber}/>
 
             <Form.Label>מספר אישי (של הפונה)</Form.Label>
-            <Form.Control placeholder="" />
+            <Form.Control placeholder=""onChange={(e)=>setClietnumber(e.target.value)} value={clientNumber} />
          
             <Form.Group className="mt-3" style={Labelstlye}>
           <FloatingLabel size='lg' controlId="floatingTextarea2" label="תיאור"  >
@@ -35,10 +77,13 @@ function Contact() {
               as="textarea"
               placeholder="הקלד פיתרון כאן"
               style={{ height: '100px' }}
-          
+          onChange={(e)=>setSolution(e.target.value)}
+          value={solution}
             />
           </FloatingLabel>
          </Form.Group>
+
+
          <main className="Sample__container__content">
                   <DatePicker
                     calendarAriaLabel="Toggle calendar"
@@ -46,17 +91,41 @@ function Contact() {
                     dayAriaLabel="Day"
                     monthAriaLabel="Month"
                     nativeInputAriaLabel="Date"
-                    onChange={onChange}
-                    value={value}
+                    onChange={setDate}
+                    value={date}
                     yearAriaLabel="Year"
                   />
                 </main>
-             
 
+                <Button className="Button" ref={target} variant="primary" type="submit">
+     <Spinner
 
-        <Button variant="primary" type="submit">
-         הוסף
-        </Button>
+hidden={spinner}
+      as="span"
+      animation="border"
+      size="sm"
+      role="status"
+      aria-hidden="true"
+    />
+                       הוסף
+     </Button>
+    
+     <Overlay target={target.current} show={show} placement="right">
+        {({ placement, arrowProps, show: _show, popper, ...props }) => (
+          <div
+            {...props}
+            style={{
+              backgroundColor: msgColor,
+              padding: '2px 6px',
+              color: 'white',
+              borderRadius: 5,
+              ...props.style,
+            }}
+          >
+        {errorMsg}
+          </div>
+        )}
+      </Overlay>
         </Form.Group>
         </Form>
                 </div>

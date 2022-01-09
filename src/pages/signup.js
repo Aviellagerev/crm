@@ -36,12 +36,13 @@ const [personalNumber, setPersonalNumber]= useState('');//
               personalNumber,namaUser,clearance,pnumber,fname,unit},
               config
               );
-          
+              setErrormsg('נרשם בהצלחה')
               setSpinner(true)
               setShow(true)
               setColor('rgb(144, 238, 144)')
         }
         catch(error){
+          console.log(error);
           setErrormsg(error.message)
           setColor('rgb(255,0,0)')
          
@@ -100,7 +101,7 @@ const [personalNumber, setPersonalNumber]= useState('');//
    
        <Form.Group controlId="formGridCity">
          <Form.Label>שם</Form.Label>
-         <Form.Control value={fname} onChange={(e)=>setFname(e.target.value)} />
+         <Form.Control value={fname} onChange={(e)=>setFname(e.target.value)} placeholder="שם פרטי ומשפחה" />
        </Form.Group>
    
        <Form.Group controlId="formGridCity">

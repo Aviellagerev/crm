@@ -14,6 +14,9 @@ const Navbar = () => {
     return (
      
            <Nav>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
             <NavLogo to="/">
                <Logo style={{marginTop:"0.4em"}}/>
             </NavLogo>
@@ -27,7 +30,7 @@ const Navbar = () => {
                    בעיות נפוצות
                 </NavLink>
                 <NavLink to="/contact" activeStyle>
-                    צור קשר
+                פניות/תלונות
                 </NavLink>
                 <NavLink to="/fault-form" activeStyle>
                     טופס תקלה
