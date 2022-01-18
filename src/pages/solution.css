@@ -1,11 +1,13 @@
-
-.Form-solution{
-  margin-top:1%;
-    margin-left: 35%;
-    margin-right:35%;
-    width: 15rem;
-    text-align:center;
-    direction: rtl;
-    float: left;
-
-};
+.card {
+ 
+  border: 2px solid #e7e7e7;
+   
+  border-radius: 4px;
+   
+  padding: .5rem;
+  width: 448px;
+  /* each box is of width 100px + 2px (border) + 10px right margin */
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  }  

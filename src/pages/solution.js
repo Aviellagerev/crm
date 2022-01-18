@@ -1,19 +1,24 @@
 import React, { useState} from "react";
-import { ListGroupItem, Card, ListGroup } from "react-bootstrap";
+import { ListGroupItem, Card, ListGroup,Row,Col,Container } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios"
+import './solution.css'
 function Solution() {
   const [data, setData] = useState([]);
-
+const [counter,setCounter] = useState(0);
     axios.get('/api/notes').then((res) => { setData(res.data) })
 
 
 
-  return data.map((note) => (
-    <Card className="Form-solution">
+  return (<Container  fluid className='gx-0'>
+    <Row xs={2} md={4} className='gx-0'>
+    {data.map((note,i) => (
+      <Col>
+    <Card className="layout" id={i} >
       <Card.Body>
         <Card.Title>{note.id} מספר מזהה</Card.Title>
       </Card.Body>
-      <ListGroup className="list-group-flush">
+      <ListGroup >
         <ListGroupItem>משפחה ראשית: {note.mainFamily}</ListGroupItem>
         <ListGroupItem>משפחה משנית: {note.secondFamily}</ListGroupItem>
         <ListGroupItem>מ.א חבר תמיכה: {note.userNumber}</ListGroupItem>
@@ -29,7 +34,10 @@ function Solution() {
         <Card.Link href="#">open bigger</Card.Link>
       </Card.Body>
     </Card>
-  ))
+    </Col>
+  ))}</Row></Container >)
+
+
   // var notes = data
   //     return( 
   //    {data.map((note) =>(
@@ -57,4 +65,5 @@ function Solution() {
   //    ))}
   //     )
 }
+
 export default Solution
