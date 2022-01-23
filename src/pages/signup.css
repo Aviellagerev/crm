@@ -2,9 +2,14 @@
 .Form-Register{
     margin-left: 35%;
     margin-right:35%;
+    margin-top:2%;
     width: 30%;
     text-align:center;
+    padding: 40px;
     direction: rtl;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #f1f1f1;
+    border-radius: 25px
 };
 .card{
     -webkit-border-radius: 3px;

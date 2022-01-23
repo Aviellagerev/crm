@@ -2,7 +2,7 @@ import React, { useState ,useRef} from 'react';
 import {Form,Button,FloatingLabel,Spinner,Overlay} from 'react-bootstrap';
 import DatePicker from 'react-date-picker';
 import axios from 'axios';
-
+import './contact.css'
 function Contact() {
   
     const Labelstlye={
@@ -59,12 +59,12 @@ function Contact() {
         
         {/*need to add an id number with uuid package in the file in the data base*/}
         <Form className="mb-3 Form" onSubmit={submitHandler}>
-            
-        <Form.Group className="mb-3">
-                <Form.Label style={HeaderStyle}>
+        <Form.Label style={HeaderStyle}>
                     טופס פניות/תלונות
                     </Form.Label>
+        <Form.Group className="mb-3">
                
+             
             <Form.Label>מספר אישי (חבר הצוות)</Form.Label>
             <Form.Control placeholder="" onChange={(e)=>setPersonal(e.target.value)}value={personalNumber}/>
 

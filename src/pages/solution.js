@@ -1,41 +1,36 @@
-import React, { useState} from "react";
-import { ListGroupItem, Card, ListGroup,Row,Col,Container } from "react-bootstrap";
+import React, { useState } from "react";
+import { ListGroupItem, Card, ListGroup, Row, Col, Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios"
 import './solution.css'
 function Solution() {
   const [data, setData] = useState([]);
-const [counter,setCounter] = useState(0);
-    axios.get('/api/notes').then((res) => { setData(res.data) })
+  const [counter, setCounter] = useState(0);
+  axios.get('/api/notes').then((res) => { setData(res.data) })
 
 
 
-  return (<Container  fluid className='gx-0'>
-    <Row xs={2} md={4} className='gx-0'>
-    {data.map((note,i) => (
-      <Col>
-    <Card className="layout" id={i} >
-      <Card.Body>
-        <Card.Title>{note.id} מספר מזהה</Card.Title>
-      </Card.Body>
-      <ListGroup >
-        <ListGroupItem>משפחה ראשית: {note.mainFamily}</ListGroupItem>
-        <ListGroupItem>משפחה משנית: {note.secondFamily}</ListGroupItem>
-        <ListGroupItem>מ.א חבר תמיכה: {note.userNumber}</ListGroupItem>
-        <ListGroupItem>מ.א של לקוח: {note.clientNumber}</ListGroupItem>
-      </ListGroup>
-      <Card.Body>
-        <Card.Text>
-                  פתרון: {note.solution}   
-        </Card.Text>
-      </Card.Body>
-      <Card.Body>
-        <Card.Link href="#">edit</Card.Link>
-        <Card.Link href="#">open bigger</Card.Link>
-      </Card.Body>
-    </Card>
-    </Col>
-  ))}</Row></Container >)
+  return (<Container fluid className='gx-0'>
+    <Row xs={2} md={4} className='gx-0 row'>
+      {data.map((note, i) => (
+        <Col className="column">
+          <Card className="layout" id={i} className="card" >
+            <Card.Body>
+              <Card.Title>{note.id} מספר מזהה</Card.Title>
+           
+            <ListGroup >
+              <ListGroupItem>משפחה ראשית: {note.mainFamily}</ListGroupItem>
+              <ListGroupItem>משפחה משנית: {note.secondFamily}</ListGroupItem>
+              <ListGroupItem>מ.א חבר תמיכה: {note.userNumber}</ListGroupItem>
+              <ListGroupItem>מ.א של לקוח: {note.clientNumber}</ListGroupItem>
+              <ListGroupItem> פתרון: {note.solution}</ListGroupItem>
+            </ListGroup>
+              <Card.Link href="#">edit</Card.Link>
+              <Card.Link href="#">open bigger</Card.Link>
+            </Card.Body>
+          </Card>
+        </Col>
+      ))}</Row></Container >)
 
 
   // var notes = data
