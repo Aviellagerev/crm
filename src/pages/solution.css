@@ -26,14 +26,15 @@ body {
 /* Style the counter cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-  padding: 10px;
+  padding: 8px;
   text-align: center;
   background-color: #f1f1f1;
-  width: 18rem;
-  margin-left: 35%;
-  margin-right:35%;
-  margin-top:2%;
-  border-radius: 25px
+  width: 17rem;
+  margin-left: 20%;
+  margin-right:20%;
+  margin-top:5%;
+  border-radius: 25px;
+  direction: rtl;
 }
 
 /* Responsive columns - one column layout (vertical) on small screens */

@@ -9,7 +9,11 @@ import {
     NavBtn,
     NavBtnLink,
 } from "./NavbarElements";
+import Dropdown from 'react-bootstrap/Dropdown'
+import './index.css'
 import { ReactComponent as Logo } from '../../logo.svg';
+
+
 const Navbar = () => {
     return (
      
@@ -26,6 +30,7 @@ const Navbar = () => {
                 <NavLink to="/" activeStyle>
                     בית
                 </NavLink>
+
                 <NavLink to="/solution" activeStyle>
                    בעיות נפוצות
                 </NavLink>
