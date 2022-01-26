@@ -10,8 +10,10 @@ import Solution from "./pages/solution";
 
 function App() {
   return (
+    
+
     <Router>
-      <Navbars />
+      <Navbars dir="rtl"/>
       <Routes>
         <Route exact path="/"  element={<Home/>} />
         <Route exact path="/solution" element={<Solution/>} />

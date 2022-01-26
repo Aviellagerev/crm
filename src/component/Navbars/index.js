@@ -8,24 +8,26 @@ import { Container,Nav,NavDropdown} from "react-bootstrap";
 const Navbars = () => {
 
     return (
-        <Navbar inverse fluid collapseOnSelect expand="lg" className="nav-color ml-auto" variant="dark">
+      <html dir="rtl">
+        <Navbar collapseOnSelect expand="lg" className="nav-color" variant="dark">
         <Container className="nav">
         <Navbar.Brand href="/">
             <Logo className="logo" />
          </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="/about">בית</Nav.Link>
-            <Nav.Link href="/sign-up">הוסף משתמש</Nav.Link>
-            <NavDropdown title="בעיות\סטטיסטיקה" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="/solution"> בעיות נפוצות</NavDropdown.Item>
-              <NavDropdown.Item href="/statistics">סטטיסטיקה</NavDropdown.Item>
+          <Nav className="ml-auto ">
+            <Nav.Link  activeClassName="active" className="nav-links" href="/about">בית</Nav.Link>
+            <Nav.Link  activeClassName="active" className="nav-links" href="/sign-up">הוסף משתמש</Nav.Link>
+            <NavDropdown className="dropdown" title="בעיות\סטטיסטיקה" id="collasible-nav-dropdown">
+              <NavDropdown.Item className="dropdown" href="/solution"> בעיות נפוצות</NavDropdown.Item>
+              <NavDropdown.Item className="dropdown" href="/statistics">סטטיסטיקה</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Nav>
-            <Nav.Link href="/contact"> פניות/תלונות</Nav.Link>
-            <Nav.Link eventKey={2} href="/fault-form">
+          <Nav className=" me-auto">
+            
+            <Nav.Link className="nav-links" href="/contact"> פניות/תלונות</Nav.Link>
+            <Nav.Link className="nav-links" eventKey={2} href="/fault-form">
             טופס תקלה
             </Nav.Link>
           </Nav>
@@ -33,7 +35,7 @@ const Navbars = () => {
         </Container>
       </Navbar>
       
-      
+      </html>
     );
 };
 export default Navbars;
