@@ -10,6 +10,10 @@ const contactSchema = mongoose.Schema(
             type:Number,
             require:true,
         },
+        description:{
+            type:String,
+            require:true,
+        },
         solution:{
             type:String,
             require:true,

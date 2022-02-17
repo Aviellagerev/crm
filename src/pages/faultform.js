@@ -9,8 +9,8 @@ function FaultForm() {
   const [secondFamily, secondChange] = useState('');
   const [userNumber, userNumberChange] = useState('');
   const [clientNumber, clientNumberChagne] = useState('');
+  const [description, setDescription] = useState('');
   const [solution, solutionChange] = useState('');
-
   const [spinner, setSpinner] = useState(true)
   const [show, setShow] = useState(false);
 
@@ -39,7 +39,7 @@ function FaultForm() {
         }
       }
       const { data } = await axios.post('/api/forms', {
-        date, mainFamily, secondFamily, userNumber, clientNumber, solution
+        date, mainFamily, secondFamily, userNumber, clientNumber,description, solution
       },
         config
       );
@@ -167,6 +167,18 @@ function FaultForm() {
 
           <Form.Label>מספר אישי (של הפונה)</Form.Label>
           <Form.Control placeholder="" value={clientNumber} onChange={(e) => clientNumberChagne(e.target.value)} />
+          <Form.Group className="mt-3" style={Labelstlye}>
+          <FloatingLabel size='lg' controlId="floatingTextarea2" label="תיאור תקלה"  >
+              <Form.Control
+                as="textarea"
+                placeholder="הקלד תיאור כאן"
+                style={{ height: '100px' }}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+
+              />
+            </FloatingLabel>
+          </Form.Group>
 
           <Form.Group className="mt-3" style={Labelstlye}>
             <FloatingLabel size='lg' controlId="floatingTextarea2" label="פיתרון"  >

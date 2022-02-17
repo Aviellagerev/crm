@@ -26,7 +26,7 @@ const Navbars = () => {
           </Nav>
           <Nav className=" me-auto">
             
-            <Nav.Link className="nav-links" href="/contact"> פניות/תלונות</Nav.Link>
+            <Nav.Link className="nav-links" href="/complain"> פניות/תלונות</Nav.Link>
             <Nav.Link className="nav-links" eventKey={2} href="/fault-form">
             טופס תקלה
             </Nav.Link>

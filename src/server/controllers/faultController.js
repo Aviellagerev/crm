@@ -1,15 +1,17 @@
 const Form = require('../models/faultModel');
 const asyncHandler = require('express-async-handler');
-
+const findUser= require('../config/user')
 const addForm = asyncHandler(async(req,res)=>{
-    const {date,mainFamily,secondFamily,userNumber,clientNumber,solution}=req.body
-console.log(req.body);
+    const {date,mainFamily,secondFamily,userNumber,clientNumber,description,solution}=req.body
+
+
 const form= await Form.create({
     date,
     mainFamily,
     secondFamily,
     userNumber,
     clientNumber,
+    description,
     solution
 
 });
@@ -20,6 +22,7 @@ if(form){
         secondFamily:form.secondFamily,
         userNumber:form.userNumber,
         clientNumber:form.clientNumber,
+        description:form.description,
         solution:form.solution,
     
         

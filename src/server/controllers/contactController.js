@@ -2,7 +2,7 @@ const Contact = require('../models/contactModel');
 const asyncHandler = require('express-async-handler');
 
 const addContact =  asyncHandler(async(req,res)=>{
-    const {personalNumber,clientNumber,solution,date
+    const {personalNumber,clientNumber,description,solution,date
         
     }=req.body
   
@@ -10,6 +10,7 @@ const addContact =  asyncHandler(async(req,res)=>{
 const contact= await Contact.create({
    personalNumber,
    clientNumber,
+   description,
    solution,
    date,
 
@@ -19,6 +20,7 @@ if(contact){
     res.status(201).json({
       peronalNumber:contact.peronalNumber,
       clientNumber:contact.clientNumber,
+      description:contact.description,
       solution:contact.solution,
       date:contact.date,
     })

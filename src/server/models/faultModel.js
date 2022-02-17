@@ -24,6 +24,10 @@ const faultSchema = mongoose.Schema(
             require:true,
             
         },
+        description:{
+            type:String,
+            require:true,
+        },
         solution:{
 type:String,
 
