@@ -13,7 +13,7 @@ const userSchema = mongoose.Schema(
         clearance:{
             type:String,
         },
-        phone:{
+        phonenumber:{
             type:Number,
             require:true,
 

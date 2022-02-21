@@ -12,7 +12,7 @@ function SignUp() {
   const [personalNumber, setPersonalNumber] = useState('');//
   const [namaUser, setNamaUser] = useState(false);
   const [clearance, setClearnce] = useState('בלמ"ס');
-  const [pnumber, setPnumber] = useState('');
+  const [phonenumber, setPnumber] = useState('');
   const [fname, setFname] = useState('');
   const [unit, setUnit] = useState('');
   const [spinner, setSpinner] = useState(true)
@@ -32,8 +32,9 @@ function SignUp() {
           'Content-Type': 'application/json'
         }
       }
+      console.log(phonenumber);
       const { data } = await axios.post('/api/users', {
-        personalNumber, namaUser, clearance, pnumber, fname, unit
+        personalNumber, namaUser, clearance, phonenumber, fname, unit
       },
         config
       );
@@ -97,7 +98,8 @@ function SignUp() {
 
         <Form.Group className="mb-3">
           <Form.Label>מספר טלפון </Form.Label>
-          <Form.Control placeholder="" value={pnumber} onChange={(e) => setPnumber(e.target.value)} />
+          <Form.Control placeholder="" value={phonenumber} onChange={(e) => setPnumber(e.target.value)} />
+          {console.log(phonenumber)}
         </Form.Group>
 
         <Form.Group controlId="formGridCity">
