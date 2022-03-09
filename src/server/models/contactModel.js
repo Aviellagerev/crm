@@ -18,6 +18,9 @@ const contactSchema = mongoose.Schema(
             type:String,
             require:true,
         },
+        readyForm:{
+            type:Boolean
+        },
         date:{
             type:Date,
             require:true,

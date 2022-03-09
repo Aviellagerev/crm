@@ -7,7 +7,7 @@ import Complain from './pages/complain';
 import SignUp from './pages/signup';
 import FaultForm from './pages/faultform';
 import Solution from "./pages/solution";
-
+import Complainview from "./pages/ComplainView"
 function App() {
   return (
     
@@ -19,6 +19,7 @@ function App() {
         <Route exact path="/solution" element={<Solution/>} />
         <Route exact path="/complain" element={<Complain />} />
         <Route exact path="/fault-form" element={<FaultForm />} />
+        <Route exact path="/complainview" element={<Complainview />}/>
         <Route exact path="/sign-up" element={<SignUp />} />
       </Routes>
     </Router>

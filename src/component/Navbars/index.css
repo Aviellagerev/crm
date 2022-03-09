@@ -2,7 +2,6 @@
     background-color:#ADD8E6;
     direction: 'rtl';
 }
-
 .logo{
     width:"15px";
     height:"15px";
@@ -10,15 +9,11 @@
 .nav-links {
     display: inline-block;
     direction: 'rtl';
-    }
-
     
+    }
 .nav-links:hover {
-  /*will change background-color of element on hover */
-    color: black  !important; /*will change color of text within the element on hover */
+    color: white  !important; /*will change color of text within the element on hover */
     }
  .nav-links:active{
-      
-            color:black  !important;
-     
+    color:white  !important;    
     }

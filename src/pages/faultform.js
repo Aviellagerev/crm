@@ -13,7 +13,7 @@ function FaultForm() {
   const [solution, solutionChange] = useState('');
   const [spinner, setSpinner] = useState(true)
   const [show, setShow] = useState(false);
-
+  const [readyForm,setForm]= useState(false);
   const [msgColor, setColor] = useState('rgb(144, 238, 144)')
   const [errorMsg, setErrormsg] = useState('נרשם בהצלחה')
   const target = useRef(null);
@@ -39,7 +39,7 @@ function FaultForm() {
         }
       }
       const { data } = await axios.post('/api/forms', {
-        date, mainFamily, secondFamily, userNumber, clientNumber,description, solution
+        date, mainFamily, secondFamily, userNumber, clientNumber, description,readyForm, solution
       },
         config
       );
@@ -168,7 +168,7 @@ function FaultForm() {
           <Form.Label>מספר אישי (של הפונה)</Form.Label>
           <Form.Control placeholder="" value={clientNumber} onChange={(e) => clientNumberChagne(e.target.value)} />
           <Form.Group className="mt-3" style={Labelstlye}>
-          <FloatingLabel size='lg' controlId="floatingTextarea2" label="תיאור תקלה"  >
+            <FloatingLabel size='lg' controlId="floatingTextarea2" label="תיאור תקלה"  >
               <Form.Control
                 as="textarea"
                 placeholder="הקלד תיאור כאן"
@@ -192,36 +192,44 @@ function FaultForm() {
               />
             </FloatingLabel>
           </Form.Group>
-
-          <Button className="Button" ref={target} variant="primary" type="submit">
-            <Spinner
-
-              hidden={spinner}
-              as="span"
-              animation="border"
-              size="sm"
-              role="status"
-              aria-hidden="true"
+          {console.log(readyForm)}
+            <Form.Check
+              type="switch"
+              id="custom-switch"
+              label="הכתיבה הסתיימה?"
+              value={readyForm}
+              onChange={(e) => setForm(!readyForm)}
             />
-            הוסף
-          </Button>
+    
+            <Button className="Button" ref={target} variant="primary" type="submit">
+              <Spinner
 
-          <Overlay target={target.current} show={show} placement="right">
-            {({ placement, arrowProps, show: _show, popper, ...props }) => (
-              <div
-                {...props}
-                style={{
-                  backgroundColor: msgColor,
-                  padding: '2px 6px',
-                  color: 'white',
-                  borderRadius: 5,
-                  ...props.style,
-                }}
-              >
-                {errorMsg}
-              </div>
-            )}
-          </Overlay>
+                hidden={spinner}
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+              הוסף
+            </Button>
+
+            <Overlay target={target.current} show={show} placement="right">
+              {({ placement, arrowProps, show: _show, popper, ...props }) => (
+                <div
+                  {...props}
+                  style={{
+                    backgroundColor: msgColor,
+                    padding: '2px 6px',
+                    color: 'white',
+                    borderRadius: 5,
+                    ...props.style,
+                  }}
+                >
+                  {errorMsg}
+                </div>
+              )}
+            </Overlay>
         </Form.Group>
       </Form>
     </div>

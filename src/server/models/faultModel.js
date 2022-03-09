@@ -28,6 +28,10 @@ const faultSchema = mongoose.Schema(
             type:String,
             require:true,
         },
+        readyForm:{
+                type:Boolean
+                
+        },
         solution:{
 type:String,
 

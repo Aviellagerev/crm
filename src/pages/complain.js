@@ -15,6 +15,7 @@ function Complain() {
     fontWeight: 'bold',
 
   }
+  const [readyForm,setForm] = useState(false);
   const [personalNumber, setPersonal] = useState('');
   const [clientNumber, setClietnumber] = useState('');
   const [solution, setSolution] = useState('');
@@ -36,7 +37,7 @@ function Complain() {
         }
       }
       const { data } = await axios.post('/api/contacts', {
-        personalNumber, clientNumber,description, solution, date
+        personalNumber, clientNumber, description, solution, date,readyForm
       },
         config
       );
@@ -107,7 +108,14 @@ function Complain() {
               yearAriaLabel="Year"
             />
           </main>
-
+            {console.log(readyForm)}
+          <Form.Check
+            type="switch"
+            id="custom-switch"
+            label="הכתיבה הסתיימה?"
+            value={readyForm}
+            onChange={(e) => setForm(!readyForm)}
+          />
           <Button className="Button" ref={target} variant="primary" type="submit">
             <Spinner
 
