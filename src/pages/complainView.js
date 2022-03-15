@@ -2,14 +2,15 @@ import React, { useState,useEffect } from "react";
 import { ListGroupItem, Card, ListGroup, Row, Col, Container, Form} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios"
-import './complainview.css'
+import './complainView.css'
 function ComplainView() {
 
   const [data, setData] = useState([]);
   const [options, setOptions] = useState("הכל")
   const [showData, setShowdata] = useState([]);
-  axios.get('/api/contacts').then((res) => { setData(res.data)})
+
   function projectChange(selected) {
+    console.log(data);
     setOptions(selected);
         if(selected ==="הכל"){
           console.log(data)
@@ -36,10 +37,14 @@ function ComplainView() {
       return "danger"
     }
   }
+  useEffect(() => {
+    axios.get('/api/contacts').then((res) => { setData(res.data);
+      setShowdata(res.data)});
+}, []);
 
   return (
 <div>
- 
+  
     <Form>
     <Form.Group className="test">
             <Form.Label>סינון</Form.Label>
