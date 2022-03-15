@@ -7,7 +7,7 @@ import Complain from './pages/complain';
 import SignUp from './pages/signup';
 import FaultForm from './pages/faultform';
 import Solution from "./pages/solution";
-import Complainview from "./pages/ComplainView"
+import Complainview from "./pages/complainView"
 function App() {
   return (
     
