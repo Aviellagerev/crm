@@ -64,9 +64,9 @@ function ComplainView() {
           </Form.Group>
       <Container fluid className='gx-0'>
 
-        <Row xs={2} md={4} className='gx-0 row'>
+        <Row className='gx-0 row'>
           {showData.map((note, i) => (
-            <Col className="column" xs={2} md={4}>
+            <Col className="column" lg={4} xs={2} md={3}>
               <Card border={colorBystatus(i)} id={i} className="card layout" >
                 <Card.Body>
                   <Card.Title>{note.id} מספר מזהה</Card.Title>

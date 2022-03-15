@@ -8,8 +8,8 @@ function Solution() {
   const [data, setData] = useState([]);
   const [options, setOptions] = useState("הכל")
   const [showData, setShowdata] = useState([]);
-  axios.get('/api/notes').then((res) => { setData(res.data)})
   function projectChange(selected) {
+    console.log(data);
     setOptions(selected);
         if(selected ==="הכל"){
           console.log(data)
@@ -36,7 +36,10 @@ function Solution() {
       return "danger"
     }
   }
-
+  useEffect(() => {
+    axios.get('/api/notes').then((res) => { setData(res.data);
+      setShowdata(res.data)});
+}, []);
   return (
 <div>
     <Form>
