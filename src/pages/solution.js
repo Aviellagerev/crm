@@ -1,8 +1,9 @@
 import React, { useState,useEffect } from "react";
-import { ListGroupItem, Card, ListGroup, Row, Col, Container, Form} from "react-bootstrap";
+import { ListGroupItem, Card, ListGroup, Row, Col, Container, Form, Accordion} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios"
 import './solution.css'
+import AccordionBody from "react-bootstrap/esm/AccordionBody";
 function Solution() {
 
   const [data, setData] = useState([]);
@@ -72,8 +73,24 @@ function Solution() {
                     <ListGroupItem>משפחה משנית: {note.secondFamily}</ListGroupItem>
                     <ListGroupItem>מ.א חבר תמיכה: {note.userNumber}</ListGroupItem>
                     <ListGroupItem>מ.א של לקוח: {note.clientNumber}</ListGroupItem>
-                    <ListGroupItem>תיאור התקלה {note.description}</ListGroupItem>
-                    <ListGroupItem> פתרון: {note.solution}</ListGroupItem>
+                  <Accordion>
+                    <Accordion.Item eventKey="0">
+                      <Accordion.Header>
+                       תיאור הבעיה:
+                      </Accordion.Header>
+                      <Accordion.Body>
+                          {note.description}
+                      </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item  eventKey="1">
+                      <Accordion.Header>
+                        פתרון הבעיה:
+                      </Accordion.Header>
+                      <Accordion.Body>
+                        {note.solution}
+                      </Accordion.Body>
+                    </Accordion.Item>
+                  </Accordion>
                   </ListGroup>
                   <Card.Link href="#">edit</Card.Link>
                   <Card.Link href="#">open bigger</Card.Link>
