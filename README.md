@@ -2,6 +2,9 @@
 ##run server
 use the terminal to get to the server directory and npm run server (for server and front end)
 user the terminal on the crm directory and npm start to get to frontend
+get to server by crm/src/server and the npm start 
+for front end got to just crm npm start 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
