@@ -31,12 +31,19 @@ function FaultForm() {
   const submitHandler = async (e) => {
     e.preventDefault();
     setSpinner(false);
-
+  
     try {
       const config = {
         headers: {
           'Content-Type': 'application/json'
         }
+      }
+      if(!inputCheck()){
+        setColor('rgb(255,0,0)')
+
+        setSpinner(true);
+        setShow(true)
+        return 1;
       }
       const { data } = await axios.post('/api/forms', {
         date, mainFamily, secondFamily, userNumber, clientNumber, description,readyForm, solution
@@ -59,6 +66,17 @@ function FaultForm() {
 
     }
 
+  }
+  function inputCheck(){
+      if(mainFamily&&secondFamily==null){
+        setErrormsg("משפחה ראשית או משנית ריקות")
+        return false 
+      }
+    if(userNumber.match(/^[0-9]+$/)||clientNumber.match(/^[0-9]+$/)== null){
+        setErrormsg("מ.א לא תקין")
+        return false 
+    }
+        return true;
   }
 
   function selectArray() {

@@ -3,7 +3,7 @@ import { ListGroupItem, Card, ListGroup, Row, Col, Container, Form, Accordion} f
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios"
 import './solution.css'
-import AccordionBody from "react-bootstrap/esm/AccordionBody";
+
 function Solution() {
 
   const [data, setData] = useState([]);
@@ -73,12 +73,12 @@ function Solution() {
                     <ListGroupItem>משפחה משנית: {note.secondFamily}</ListGroupItem>
                     <ListGroupItem>מ.א חבר תמיכה: {note.userNumber}</ListGroupItem>
                     <ListGroupItem>מ.א של לקוח: {note.clientNumber}</ListGroupItem>
-                  <Accordion>
+                  <Accordion className="acordionfit">
                     <Accordion.Item eventKey="0">
                       <Accordion.Header>
                        תיאור הבעיה:
                       </Accordion.Header>
-                      <Accordion.Body>
+                      <Accordion.Body className="acordionfit">
                           {note.description}
                       </Accordion.Body>
                     </Accordion.Item>
@@ -86,7 +86,7 @@ function Solution() {
                       <Accordion.Header>
                         פתרון הבעיה:
                       </Accordion.Header>
-                      <Accordion.Body>
+                      <Accordion.Body className="acordionfit">
                         {note.solution}
                       </Accordion.Body>
                     </Accordion.Item>
