@@ -10,16 +10,16 @@ import Solution from "./pages/solution";
 import Complainview from "./pages/complainView"
 function App() {
   return (
-    
+
 
     <Router>
-      <Navbars dir="rtl"/>
+      <Navbars dir="rtl" />
       <Routes>
-        <Route exact path="/"  element={<Home/>} />
-        <Route exact path="/solution" element={<Solution/>} />
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/solution" element={<Solution />} />
         <Route exact path="/complain" element={<Complain />} />
         <Route exact path="/fault-form" element={<FaultForm />} />
-        <Route exact path="/complainview" element={<Complainview />}/>
+        <Route exact path="/complainview" element={<Complainview />} />
         <Route exact path="/sign-up" element={<SignUp />} />
       </Routes>
     </Router>

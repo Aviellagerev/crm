@@ -49,6 +49,9 @@ body {
   text-align:left;
   text-align: end;
 }
+.acordionfit{
+  word-break:break-all;
+}
 /* Responsive columns - one column layout (vertical) on small screens */
 @media screen and (max-width: 600px) {
   .column {
