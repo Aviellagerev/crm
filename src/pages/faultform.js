@@ -54,7 +54,7 @@ function FaultForm() {
       setSpinner(true)
       setShow(true)
       setColor('rgb(144, 238, 144)')
-      console.log(msgColor)
+    
     }
     catch (error) {
       setErrormsg(error.message)
@@ -68,17 +68,36 @@ function FaultForm() {
 
   }
   function inputCheck(){
-      if(mainFamily&&secondFamily==null){
-        setErrormsg("משפחה ראשית או משנית ריקות")
+       if(mainFamily&&secondFamily==''){
+         setErrormsg("משפחה ראשית או משנית ריקות")
+         return false 
+       }
+      if((clientNumber.match(/^[0-9]+/)!=clientNumber||clientNumber>9999999||clientNumber<1000000)){
+        setErrormsg(" מ.א של לקוח לא תקין")
         return false 
       }
-    if(userNumber.match(/^[0-9]+$/)||clientNumber.match(/^[0-9]+$/)== null){
-        setErrormsg("מ.א לא תקין")
+      console.log(description);
+      console.log(readyForm);
+      console.log(solution);
+      if(description == ''){
+        console.log("got in description")
+        setErrormsg(" תיאור ריק")
+        return false
+      }
+      if(solution==''&&readyForm){
+        console.log("gor in solution");
+        setErrormsg(" פתרון ריק")
+        return false
+      }
+    if((userNumber.match(/^[0-9]+/)!=userNumber||userNumber>9999999||userNumber<1000000)){
+      console.log("got inside");
+        setErrormsg("מ.א של חבר צוות לא תקין")
         return false 
     }
+    console.log("got to true");
         return true;
   }
-
+ 
   function selectArray() {
     var optionarray = []
     switch (mainFamily) {
@@ -210,7 +229,7 @@ function FaultForm() {
               />
             </FloatingLabel>
           </Form.Group>
-          {console.log(readyForm)}
+          
             <Form.Check
               type="switch"
               id="custom-switch"

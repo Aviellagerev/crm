@@ -73,7 +73,7 @@ function Solution() {
                     <ListGroupItem>משפחה משנית: {note.secondFamily}</ListGroupItem>
                     <ListGroupItem>מ.א חבר תמיכה: {note.userNumber}</ListGroupItem>
                     <ListGroupItem>מ.א של לקוח: {note.clientNumber}</ListGroupItem>
-                  <Accordion className="acordionfit">
+                  <Accordion className="acordionfit" alwaysOpen >
                     <Accordion.Item eventKey="0">
                       <Accordion.Header>
                        תיאור הבעיה:
